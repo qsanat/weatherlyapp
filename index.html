@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WEATHERLY</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section class="hero-card" aria-labelledby="app-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Minimal weather lookup</p>
+        <h1 id="app-title">WEATHERLY</h1>
+        <p class="subtitle">Check current conditions for any city and country with a clean, icon-driven view.</p>
+      </div>
+
+      <form id="weather-form" class="weather-form" novalidate>
+        <div class="api-key-panel">
+          <label for="apiKey">API Key</label>
+          <input id="apiKey" name="apiKey" type="password" placeholder="Enter your OpenWeatherMap API key" autocomplete="off">
+          <p class="field-hint">Your API key stays in the browser for this session only.</p>
+        </div>
+
+        <div class="field-grid">
+          <label class="input-group" for="city">
+            <span>City</span>
+            <input id="city" name="city" type="text" placeholder="Sydney" autocomplete="address-level2">
+          </label>
+
+          <label class="input-group" for="country">
+            <span>Country</span>
+            <input id="country" name="country" type="text" placeholder="Australia" autocomplete="country-name">
+          </label>
+        </div>
+
+        <button class="submit-button" type="submit">Get Weather</button>
+        <p id="form-message" class="form-message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="weather-card" class="weather-card is-hidden" aria-live="polite">
+      <div class="weather-card__header">
+        <div>
+          <p id="result-location" class="result-location"></p>
+          <p id="result-condition" class="result-condition"></p>
+        </div>
+        <div class="weather-visual">
+          <img id="weather-icon" src="" alt="" width="88" height="88">
+          <p id="result-temp" class="result-temp"></p>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <article class="metric-card">
+          <p class="metric-label">Humidity</p>
+          <p id="result-humidity" class="metric-value"></p>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Wind Speed</p>
+          <p id="result-wind" class="metric-value"></p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
